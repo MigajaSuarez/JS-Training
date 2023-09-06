@@ -90,8 +90,19 @@ stringMirror("Hola Mundo");
 
 // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
-function findRepeatred(text, repetitions) {
-    
+function findRepeatredWord(text, searchWord) {
+    if(dataTypeValidator(text, 'string')){
+        if (!dataTypeValidator(searchWord, 'string')) {
+            console.warn("is not a vaild number of repetitions");
+            return;
+        }
+        let originalStringArray = text.split(' ');
+        console.log(originalStringArray)
+        let numberOfRepetitions = 0;
+        originalStringArray.forEach((val)=> (val === searchWord) ? numberOfRepetitions++ : numberOfRepetitions);
+        console.log(`the number of repetitions of "${searchWord}" in the text is "${numberOfRepetitions}" `);
+    } else console.warn(`this data entry "${searchWord}" is invalid for example 5 `);
 }
+findRepeatredWord("hola mundo adios mundo perfecto mundo mundo", "mundo")
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
