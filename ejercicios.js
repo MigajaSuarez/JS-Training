@@ -97,12 +97,29 @@ function findRepeatredWord(text, searchWord) {
             return;
         }
         let originalStringArray = text.split(' ');
-        console.log(originalStringArray)
         let numberOfRepetitions = 0;
         originalStringArray.forEach((val)=> (val === searchWord) ? numberOfRepetitions++ : numberOfRepetitions);
         console.log(`the number of repetitions of "${searchWord}" in the text is "${numberOfRepetitions}" `);
-    } else console.warn(`this data entry "${searchWord}" is invalid for example 5 `);
+    } else console.warn(`this data entry "${searchWord}" is invalid for example 7 `);
 }
-findRepeatredWord("hola mundo adios mundo perfecto mundo mundo", "mundo")
+// findRepeatredWord("hola mundo adios mundo perfecto mundo mundo", "mundo")
+findRepeatredWord("hola mundo adios mundo", "mundo")
+
+
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+function palindromChecker(input ="") {
+    if(dataTypeValidator (input, 'string')) {
+        let stringArray= input.toLocaleLowerCase().split('');
+        let reversedStringArray= [];
+        stringArray.forEach((val)=>reversedStringArray.unshift(val));
+        let result= false
+        stringArray.forEach((val,index)=>(val=== reversedStringArray[index]) ? result=true : result=false)
+        console.log(`the word "${input}" is${(result)?'': ' NOT'} a palyndrome`);
+    } else console.warn(`this data entry "${input}" is invalid for example 7 `);
+}
+
+palindromChecker('Salas');
+palindromChecker('pepito');
+
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
